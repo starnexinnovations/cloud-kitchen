@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { contactInfo } from '../data/restaurantData';
 import Button from '../components/ui/Button';
+import WhatsAppButton from '../components/whatsapp/Whatsapp';
 
 const Contact = () => {
     const handleSubmit = (e: React.FormEvent) => {
@@ -224,6 +225,7 @@ const Contact = () => {
                     </div>
                 </div>
             </section>
+            <WhatsAppButton message="Hello! I would like to inquire about catering services for my event." />
         </div>
     );
 };

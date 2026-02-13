@@ -23,11 +23,12 @@ const Header = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? 'glass shadow-lg py-2'
+            className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+                    ? 'bg-background shadow-lg py-2'
                     : 'bg-transparent py-4'
                 }`}
         >
+
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
@@ -50,21 +51,37 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center gap-8">
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.path}
-                                to={item.path}
-                                className={`relative text-base font-medium transition-colors hover:text-primary ${location.pathname === item.path
-                                        ? 'text-primary'
-                                        : 'text-text-primary'
-                                    }`}
-                            >
-                                {item.label}
-                                {location.pathname === item.path && (
-                                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
-                                )}
-                            </Link>
-                        ))}
+                        {navItems.map((item) => {
+                            const isActive = location.pathname === item.path;
+
+                            // ✅ If it is button type
+                            if (item.type === 'button') {
+                                return (
+                                    <Link
+                                        key={item.path}
+                                        to={item.path}
+                                        className="px-5 py-2 rounded-full bg-primary text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                );
+                            }
+
+                            // ✅ Normal nav links
+                            return (
+                                <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    className={`relative text-base font-medium transition-colors hover:text-primary ${isActive ? 'text-primary' : 'text-text-primary'
+                                        }`}
+                                >
+                                    {item.label}
+                                    {isActive && (
+                                        <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                                    )}
+                                </Link>
+                            );
+                        })}
                     </nav>
 
                     {/* Mobile Menu Button */}
@@ -81,23 +98,39 @@ const Header = () => {
             {/* Mobile Navigation */}
             <div
                 className={`md:hidden fixed inset-x-0 top-full transition-all duration-300 ${isMenuOpen
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 -translate-y-4 pointer-events-none'
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 -translate-y-4 pointer-events-none'
                     }`}
             >
                 <nav className="glass mx-4 mt-2 rounded-xl shadow-xl overflow-hidden">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.path}
-                            to={item.path}
-                            className={`block px-6 py-4 text-base font-medium border-b border-background-dark last:border-0 transition-colors ${location.pathname === item.path
-                                    ? 'text-primary bg-background'
-                                    : 'text-text-primary hover:text-primary hover:bg-background'
-                                }`}
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    {navItems.map((item) => {
+                        if (item.type === 'button') {
+                            return (
+                                <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="block mx-4 my-4 text-center px-5 py-3 rounded-full bg-primary text-white font-semibold shadow-md"
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        }
+
+                        return (
+                            <Link
+                                key={item.path}
+                                to={item.path}
+                                onClick={() => setIsMenuOpen(false)}
+                                className={`block px-6 py-4 text-base font-medium border-b border-background-dark last:border-0 transition-colors ${location.pathname === item.path
+                                        ? 'text-primary bg-background'
+                                        : 'text-text-primary hover:text-primary hover:bg-background'
+                                    }`}
+                            >
+                                {item.label}
+                            </Link>
+                        );
+                    })}
                 </nav>
             </div>
         </header>

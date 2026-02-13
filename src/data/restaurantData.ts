@@ -1,4 +1,6 @@
 import type { RestaurantInfo, ContactInfo, Feature, HeroSlide, NavItem, SocialLink } from '../types';
+import leaf from "../assets/hero/leaf.jpeg";
+
 
 // Restaurant Information
 export const restaurantInfo: RestaurantInfo = {
@@ -23,12 +25,12 @@ Our commitment to quality is unwavering. We source the freshest ingredients, use
 
 // Contact Information
 export const contactInfo: ContactInfo = {
-    phone: '+91 98765 43210',
-    altPhone: '+91 98765 43211',
-    email: 'info@krishnacatering.com',
-    address: '123, Temple Street, Near Meenakshi Temple',
-    city: 'Madurai',
-    pincode: '625001',
+    phone: '+91 93440 20405',
+    altPhone: '+91 82483 50005',
+    email: 'krishnaafoodservices@gmail.com',
+    address: 'Saibaba colony',
+    city: 'Coimbatore',
+    pincode: '641011',
     mapUrl: 'https://maps.google.com/?q=9.9252,78.1198',
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.122!2d78.1198!3d9.9252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnMzAuNyJOIDc4wrAwNycxMS4zIkU!5e0!3m2!1sen!2sin!4v1234567890',
     timings: [
@@ -83,8 +85,8 @@ export const heroSlides: HeroSlide[] = [
     {
         id: 1,
         title: 'Authentic South Indian Flavors',
+        image: leaf,
         subtitle: 'Experience the taste of traditional Tamil Nadu cuisine',
-        image: 'https://images.unsplash.com/photo-1567337710282-00832b415979?w=1600',
         ctaText: 'View Menu',
         ctaLink: '/menu'
     },
@@ -111,7 +113,8 @@ export const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
     { label: 'Menu', path: '/menu' },
     { label: 'About Us', path: '/about' },
-    { label: 'Contact', path: '/contact' }
+    { label: 'Contact', path: '/contact' },
+    { label: 'Book an Appointment', path: '/book-appointment', type: 'button' }
 ];
 
 // Social Links
@@ -127,7 +130,8 @@ export const quickLinks = [
     { label: 'Home', path: '/' },
     { label: 'Menu', path: '/menu' },
     { label: 'About Us', path: '/about' },
-    { label: 'Contact', path: '/contact' }
+    { label: 'Contact', path: '/contact' },
+  
 ];
 
 // Stats for About Page
