@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { buildWhatsAppUrl } from "../utils/whatsapp";
 
