@@ -5,7 +5,7 @@ export interface MenuItem {
     nameTa: string;
     description?: string;
     quantity?: string;
-    price?: number;
+    price: number;
     isVeg: boolean;
     isPopular?: boolean;
     isSpicy?: boolean;
@@ -65,6 +65,7 @@ export interface Feature {
 export interface NavItem {
     label: string;
     path: string;
+    type?: 'link' | 'button';
     isActive?: boolean;
 }
 

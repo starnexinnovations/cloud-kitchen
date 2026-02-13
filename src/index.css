@@ -1,87 +1,124 @@
+/* Google Fonts MUST come first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+
+/* Tailwind import MUST come after fonts */
 @import "tailwindcss";
+
 
 /* Custom Theme Configuration */
 @theme {
-  /* Colors - Warm Indian Restaurant Palette */
-  --color-primary: #F59E0B;
-  --color-primary-light: #FBBF24;
-  --color-primary-dark: #D97706;
-  
-  --color-secondary: #7C2D12;
-  --color-secondary-light: #9A3412;
-  --color-secondary-dark: #5A1E0E;
-  
-  --color-accent: #FCD34D;
-  --color-accent-light: #FDE68A;
-  --color-accent-dark: #F59E0B;
-  
-  --color-background: #FFFBEB;
-  --color-background-dark: #FEF3C7;
-  
+
+  /* =========================
+     BRAND COLORS
+  ========================== */
+
+  --color-primary: #33691E;          /* Leaf Green */
+  --color-primary-light: #4C8C2B;
+  --color-primary-dark: #1B5E20;
+
+  --color-secondary: #F9A825;        /* Turmeric Yellow */
+  --color-secondary-light: #FBC02D;
+  --color-secondary-dark: #F57F17;
+
+  --color-accent: #B71C1C;           /* Deep Red */
+  --color-accent-light: #D32F2F;
+  --color-accent-dark: #7F0000;
+
+  /* =========================
+     BACKGROUND & SURFACE
+  ========================== */
+
+  --color-background: #FAFAFA;       /* Off White */
+  --color-background-dark: #E8F5E9;  /* soft green tint */
+
   --color-surface: #FFFFFF;
-  --color-surface-dark: #F5F5F4;
-  
-  --color-text-primary: #451A03;
-  --color-text-secondary: #78716C;
-  --color-text-light: #A8A29E;
-  
-  --color-success: #22C55E;
-  --color-error: #EF4444;
-  
-  /* Font Families */
+  --color-surface-dark: #F5F5F5;
+
+  /* =========================
+     TEXT
+  ========================== */
+
+  --color-text-primary: #4E342E;     /* Brown */
+  --color-text-secondary: #6D4C41;
+  --color-text-light: #A1887F;
+
+  /* =========================
+     STATUS
+  ========================== */
+
+  --color-success: #2E7D32;
+  --color-error: #C62828;
+
+  /* =========================
+     FONTS
+  ========================== */
+
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
   --font-tamil: 'Noto Sans Tamil', sans-serif;
-  
-  /* Border Radius */
+
+  /* =========================
+     RADIUS
+  ========================== */
+
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
-  
-  /* Shadows */
+
+  /* =========================
+     SHADOWS
+  ========================== */
+
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  
-  /* Animations */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+               0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+               0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+               0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* =========================
+     ANIMATIONS (Keep Yours)
+  ========================== */
+
   --animate-fade-in: fade-in 0.5s ease-out;
   --animate-slide-up: slide-up 0.5s ease-out;
   --animate-slide-down: slide-down 0.3s ease-out;
   --animate-scale-in: scale-in 0.3s ease-out;
   --animate-float: float 3s ease-in-out infinite;
-  
+
   @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  
+
   @keyframes slide-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
   @keyframes slide-down {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
   @keyframes scale-in {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
   }
-  
+
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
 }
 
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+
+
+
 
 /* Base Styles */
 html {
@@ -93,12 +130,25 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h2, h3 {
   font-family: var(--font-heading);
   font-weight: 600;
 }
+
+h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
 
 /* Tamil Text */
 .font-tamil {
