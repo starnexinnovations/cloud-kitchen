@@ -10,7 +10,7 @@ interface MenuFilters {
 export const useMenu = () => {
   const [filters, setFilters] = useState<MenuFilters>({});
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-  const [inquiry, setInquiry] = useState<MenuItem[]>([]);
+ 
 
   const allItems: MenuItem[] = getAllMenuItems();
 
